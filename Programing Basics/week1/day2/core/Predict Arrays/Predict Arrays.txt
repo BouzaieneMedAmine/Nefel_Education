@@ -1,0 +1,29 @@
+var contactInfo = ["Paula", "Smith", "1234 Main Street", "St. Louis", "MO", 12345];
+console.log(contactInfo);
+
+Variables        |      value                                         |     output
+contactInfo      |     Paula,Smith,1234 Main Street,St. Louis,MO,12345 |       Paula,Smith,1234 Main Street,St. Louis,MO,12345
+
+
+           
+                     
+var produce = ["apples", "oranges"];
+var frozen = ["broccoli", "ice cream"];
+frozen.push("hashbrowns");
+console.log(frozen);
+      
+   Variables        |           value                                         |     output  
+   produce          |        apples,oranges                                   |    broccoli,ice cream,hashbrowns
+   frozen           |    broccoli,ice cream,hashbrowns                        |
+
+
+
+
+var movieLibrary = ["Bambi", "E.T.", "Toy Story"];
+movieLibrary.push("Zorro");
+movieLibrary[1] = "Beetlejuice";
+console.log(movieLibrary);
+
+   Variables        |           value                                         |     output  
+movieLibrary        |    Bambi,Beetlejuice.,Toy Story,Zorro                   |    Bambi,Beetlejuice.,Toy Story,Zorro
+
