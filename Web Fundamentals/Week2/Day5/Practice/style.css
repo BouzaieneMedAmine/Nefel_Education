@@ -35,3 +35,55 @@
 }.all{
     margin: 20px
 }
+*{
+    margin: 0;
+    padding: 0;
+
+    font-family:"Roboto", sans-serif;
+    font-weight: 400;
+  font-style: normal;
+
+}
+body{
+    width: 100%;
+
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    height: 50px;
+    background-color: #333333;
+    color: white;
+    padding: 10px;
+
+}
+.nav-links{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style-type: none;
+
+}
+a{
+    text-decoration: none;
+    color: grey;
+}
+.active{
+    color: white;
+}
+.btn{
+    color:wheat ;
+    background-color:#1d9fb6 ;
+    width: 100px;
+    height: 30px;
+    border: 3px solid black;
+    box-shadow: 2px 2px 2px black ;
+    border-radius: 5px;
+
+    
+    
+}
+

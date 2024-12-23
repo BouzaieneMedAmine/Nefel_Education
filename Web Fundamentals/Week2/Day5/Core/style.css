@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+header{
+    background-color: black;
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+
+}
+ul{
+    display: flex;
+    list-style-type: none;
+    gap: 20px;
+}
+button{
+   background-color: #17a2b7;
+   color: white; 
+   width: 90px;
+   height: 30px;
+   border: 2px solid grey
+}
+.main{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 20px;
+    gap: 20px;
+}
+.usercard{
+width: 500px;
+
+
+}
+.bleu{
+    width: 100%;
+    background-color: #17a2b7;
+    height: 100px;
+}
+.infor{
+    padding: 10px;
+    border: 3px solid gainsboro;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+.user{
+    width: 100px;
+    position: relative;
+    top:  50px;
+    padding-left: 10px;
+}
+.position{
+    display: flex;
+    gap: 10px;
+
+}
+.map{
+    width: 15px;
+}
+.gear{
+    width: 15px;
+}
+.education{
+    width: 500px;
+}
+.edu{
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+.educ{
+    padding: 10px;
+    border: 3px solid gainsboro;
+}
+.left{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.num{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: black;
+    color: white;
+    padding:20px ;
+}
+.req{
+    width: 30px;
+    height: 30px;
+    color: black;
+    background-color: gainsboro;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.rty{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.icons{
+    width: 50px;
+    border-radius: 50%;
+}
+.people{
+    border: 3px solid gainsboro;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.rep{
+    width: 50px;
+    height: 30px;
+    color: black;
+    background-color: gainsboro;
+    border-radius: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.right{
+    display: flex;
+    flex-direction: column;
+}
+.peopless{
+    border: 3px solid gainsboro;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.rtyy{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+.num2{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: black;
+    color: white;
+    padding:20px ;
+    margin-top: 20px;
+}
