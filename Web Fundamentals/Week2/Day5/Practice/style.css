@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.header{
+    background-color: #17a2b7;
+}
+.user img{
+    width: 100px;
+    position: relative 10px;
+}
+.position{
+    display: flex;
+    align-content: flex-start;
+}
+.map img{
+    width: 20px;
+
+}
+.edit img{
+    width: 20px;
+}
