@@ -1,0 +1,117 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+
+/* -------navbar------- */
+.container{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.navbar{
+    height: 60px;
+    background-color:#9fc4f8;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.navbar ul{
+    display:flex ;
+    list-style: none;
+    gap: 20px;
+}
+
+
+/* -----------main----------- */
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+
+}
+
+.incontent img{
+    width: 80px;
+    border-radius: 50%;
+}
+
+.topmain{
+    margin-top: 20px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.deg{
+    display: flex;
+    gap: 15px;
+}
+.deg select{
+    padding: 5px;
+    border: 2px solid black;
+
+
+}
+.midmain{
+    border-top: 3px solid black;
+    margin-top: 20px;
+
+}
+.content{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    
+    gap: 10px;
+    
+
+}
+.incontent{
+    background-color:#eeeeee ;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height:250px ;
+    justify-content: space-between;
+
+}
+.temperature{
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+}
+.butmain{
+    display: flex;
+    margin-top: 10px;
+    border: 2px solid black;
+    width: 80%;
+    align-items: center;
+    gap: 20px;
+
+}
+.hot{
+    color:#bf3b36 ;
+}
+.cold{
+    color:#4073c3 ;
+}
+.butmain button{
+    border: 2px solid black;
+    margin-right: 5px;
+    padding: 5px 30px;
+    background-color: #98c2f0;
+    box-shadow: black 2px 2px 2px;
+}
+

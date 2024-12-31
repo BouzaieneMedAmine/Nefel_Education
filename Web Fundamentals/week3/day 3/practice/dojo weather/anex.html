@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <h1>DojoWeather</h1>
+            <ul>
+                <li  onclick="city(this)">Burbank</li>
+                <li onclick="city('id')">Chicago</li>
+                <li onclick="city('id')">Dallas</li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="topmain">
+                <div><h2>San Jose</h2></div>
+                <div class="deg">
+                    <h3>Show temperature in</h3>
+                    <select><option>°C</option>
+                            <option>°F</option>
+                    </select>
+                </div>
+            </div>
+            <div class="midmain">
+                <div class="content">
+                    <div class="incontent">
+                        <h2>Today</h2>
+                        <img src="assets/some_rain.png" alt="some_rain">
+                        <h3>some rain</h3>
+                        <div class="temperature">
+                            <h2 class="hot">24°</h2>
+                            <h2 class="cold">18°</h2>
+                        </div>
+                    </div>   
+                    <div class="incontent">
+                        <h2>Tomorrow</h2>
+                        <img src="assets/some_sun.png" alt="some_sun">
+                        <h3>some sun</h3>
+                        <div class="temperature">
+                            <h2 class="hot">27°</h2>
+                            <h2 class="cold">19°</h2>
+                        </div>
+                    </div>
+                    <div class="incontent">
+                        <h2>Today</h2>
+                        <img src="assets/some_clouds.png" alt="some_clouds">
+                        <h3>some clouds</h3>
+                        <div class="temperature">
+                            <h2 class="hot">21°</h2>
+                            <h2 class="cold">16°</h2>
+                        </div> 
+                    </div>   
+                    <div class="incontent">
+                        <h2>Today</h2>
+                        <img src="assets/some_sun.png" alt="some_sun">
+                        <h3>some sun</h3>
+                        <div class="temperature">
+                            <h2 class="hot">24°</h2>
+                            <h2 class="cold">21°</h2>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id= cookies class="butmain">
+                <div><img src="./assets/cookie.png" alt="cookie"></div>
+                <div>
+                    <h2>Stop! Cookie time</h2>
+                    <p>We use cookies (sadly not the edible ones) to personalize content and ads, to provide social media features and anlyse our traffic. <a href="#">Read more...</a></p>
+                </div>
+                <div><button onclick="dele('#cookies')">IAccept</button></div>
+
+
+            </div>
+        </div>
+    </div>
+   <script src="script.js"></script> 
+</body>
+</html>
