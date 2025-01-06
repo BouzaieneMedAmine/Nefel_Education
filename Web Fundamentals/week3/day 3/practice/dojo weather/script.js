@@ -3,6 +3,6 @@ function city(){
 }
 
 function dele(id){
-    var e=document.querySelector(id)
+    var e=document.querySelector('')
     e.remove()
 }
