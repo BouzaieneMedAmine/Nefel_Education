@@ -1,0 +1,1 @@
+// on cree deux variable pour contenir les valeur des deux 

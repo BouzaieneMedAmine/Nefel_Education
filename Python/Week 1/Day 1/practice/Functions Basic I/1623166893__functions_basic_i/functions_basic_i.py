@@ -127,7 +127,7 @@ foo()
 def foo():
     print(1)
     x = bar()
-    print(x)
+    # print(x)
     return 10
 def bar():
     print(3)
