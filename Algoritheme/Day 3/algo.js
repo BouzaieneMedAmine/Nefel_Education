@@ -5,7 +5,7 @@
 function arr1=["a","b","c"]{
     var const=0
     for (var i=0;i=<arr1.length-1 ;i++){
-        if i== c
+        if i== 'c'
         return const= 2
     }
    
