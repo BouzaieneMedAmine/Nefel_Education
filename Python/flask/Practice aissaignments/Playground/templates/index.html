@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <title>Play</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    {% for _ in range(mult) %}
+        <div class="box" style="background-color: {{ color }}"></div>
+    {% endfor %}
+
+    <!-- <h1>test</h1> -->
+</body>
+</html>
