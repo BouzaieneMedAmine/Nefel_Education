@@ -4,7 +4,7 @@ app = Flask(__name__)    # Create a new instance of the Flask class called "app"
 # def index():
 #     return render_template("index.html")
 
-@app.route('//)
+@app.route('/')
 def style():
     return render_template("style.css")
 
