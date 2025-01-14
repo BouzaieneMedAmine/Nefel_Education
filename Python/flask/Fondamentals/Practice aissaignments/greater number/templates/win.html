@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You Win!</title>
+</head>
+<body>
+    <h1>Congratulations! You guessed it!</h1>
+    <p>It took you {{ attempts }} attempts.</p>
+    <form action="/win" method="post">
+        <input type="text" name="name" placeholder="Enter your name" required>
+        <button type="submit">Submit to Leaderboard</button>
+    </form>
+    <a href="/reset">Play Again</a>
+</body>
+</html>

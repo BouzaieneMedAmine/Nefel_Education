@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+}
+
+h1 {
+    color: #333;
+}
+
+.status {
+    font-weight: bold;
+    color: red;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+a {
+    display: block;
+    margin-top: 20px;
+    font-size: 16px;
+}
