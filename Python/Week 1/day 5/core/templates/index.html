@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Counter</title>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='style.css') }}"
-    />
-  </head>
-  <body>
-    <div class="top">
-        <h1>Counter</h1>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Counter</h1>
+    <p><strong>Counter Value:</strong> {{ counter }}</p>
+    <p><strong>Actual Visits:</strong> {{ actual_visits }}</p>
 
-    <h3>{{ session['num']}}</h3>
-    </div>
-    <div class="button">
-      <form action="/count" method="POST">
-        <button style="background-color: rgb(12, 155, 165)" type="submit">
-          Click
-        </button>
-      </form>
-      <form style="" action="/" method="GET">
-        <button type="submit">reset</button>
-      </form>
-    </div>
-  </body>
+  
+    <a href="/increment_by_2"><button>Increment by 2</button></a>
+    <a href="/reset"><button>Reset Counter</button></a>
+    <a href="/destroy_session"><button>Destroy Session</button></a>
+
+    
+    <form action="/set_increment" method="POST">
+        <label for="increment">Set Increment:</label>
+        <input type="number" id="increment" name="increment" required>
+        <button type="submit">Submit</button>
+    </form>
+</body>
 </html>
