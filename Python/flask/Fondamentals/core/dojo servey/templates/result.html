@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Results</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Survey Results</h1>
+    <p><strong>Name:</strong> {{ name }}</p>
+    <p><strong>Location:</strong> {{ location }}</p>
+    <p><strong>Favorite Language:</strong> {{ language }}</p>
+    <p><strong>Comments:</strong> {{ comments }}</p>
+
+    <p><strong>Hobbies:</strong></p>
+    <ul>
+        {% for hobby in hobbies %}
+            <li>{{ hobby }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/">Take the Survey Again</a>
+</body>
+</html>
