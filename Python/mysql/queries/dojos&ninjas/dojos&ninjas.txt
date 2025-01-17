@@ -1,0 +1,11 @@
+SELECT * FROM dojos_and_ninjas_schema.dojos;
+INSERT INTO dojos (name) VALUES('Amine'),('Jane'),('Joe');
+DELETE  FROM dojos WHERE id = 15;
+INSERT INTO dojos (name) VALUES('Amine'), ('Jane'), ('joe');
+INSERT INTO ninjas (first_name, last_name, age, dojo_id) VALUES ('Anne',' Bouzaiene', 40, 10), ('Lina',' Bou',25 ,10), ('Bob','Zaiene', 35,10);
+INSERT INTO ninjas (first_name, last_name, age, dojo_id) VALUES ('Saz',' Boue', 40, 11), ('Li',' Book',25 ,11), ('Fab','Hero', 35,11);
+INSERT INTO ninjas (first_name, last_name, age, dojo_id) VALUES ('Soka',' Baro', 40, 12), ('Kamouchira', 'Bikano',25 ,12), ('Mahindra','Kanerosi', 35,12);
+SELECT * FROM dojos_and_ninjas_schema.ninjas WHERE dojo_id = 10;
+SELECT * FROM dojos_and_ninjas_schema.ninjas WHERE dojo_id = 12;
+SELECT * FROM dojos_and_ninjas_schema.ninjas WHERE first_name = ('Mahindra') ;
+SELECT * FROM dojos JOIN ninjas ON dojos.id = ninjas.dojo_id 
