@@ -1,32 +1,47 @@
 class BankAccount:
-    # don't forget to add some default values for these parameters!
-    def __init__(self, int_rate, balance):
-        self.in_rate= int_rate
-        self.balance= balance
+    accounts = []
+
+    def __init__(self, int_rate=0.01, balance=0):
+        self.int_rate = int_rate
+        self.balance = balance
+        BankAccount.accounts.append(self)
+
     def deposit(self, amount):
-        if amount>0:
-            self.balance += amount
-            return 'self.balance'
-   
-    def withdraw(self, amount1):
-        if amount1 > self.balance:
-            print(f'Insufficient funds you have been charged 5$ fee')
-            self.balance-= 5
-            return 'self.balance'
-        else :
-            self.balance-= amount1 
-            return 'self.balance'
-        
+        self.balance += amount
+        return self 
+
+    def withdraw(self, amount):
+        if self.balance >= amount:
+            self.balance -= amount
+        else:
+            print("Insufficient funds: Charging a $5 fee")
+            self.balance -= 5
+        return self  
+
     def display_account_info(self):
-        print (self.balance)
-    
-    
+        print(f"Balance: ${self.balance:.2f}")
+        return self  
+
     def yield_interest(self):
-        while self.balance > 0:
-            self.balance+= self.in_rate 
-            return 'self.balance'
+        if self.balance > 0:
+            self.balance += self.balance * self.int_rate
+        return self  
+
+    @classmethod
+    def display_all_accounts(cls):
+        for account in cls.accounts:
+            account.display_account_info()
 
 
+account1 = BankAccount(int_rate=0.02, balance=100)
+account2 = BankAccount(int_rate=0.03, balance=50)
 
-account1 = BankAccount(0.01 , 1450)
-account2 = BankAccount(0.06 , 5460)
+
+account1.deposit(50).deposit(30).deposit(20).withdraw(70).yield_interest().display_account_info()
+
+
+account2.deposit(100).deposit(50).withdraw(30).withdraw(20).withdraw(15).withdraw(10).yield_interest().display_account_info()
+
+
+print("\nAll accounts:")
+BankAccount.display_all_accounts()
