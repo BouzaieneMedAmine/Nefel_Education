@@ -1,0 +1,20 @@
+SELECT * FROM friendships_schema.users;
+INSERT INTO users (first_name, last_name) VALUES
+('Jane', 'Amsden'),('Emily', 'Dixon'),('Theodore', 'Dostoevsky'),('William', 'Shapiro'),('Lao', 'Xiu'),('Ali','Bennasser');
+SELECT users.first_name as first_name , users.last_name as last_name ,    
+user2.first_name as friend_first_name, user2.last_name as friend_last_name
+FROM users 
+JOIN friendships ON users.id = friendships.friend_id 
+LEFT JOIN users as user2 ON friendships.friend_id  = users.id ;
+
+
+SELECT users.first_name as first_name , users.last_name as last_name ,    
+user2.first_name as friend_first_name, user2.last_name as friend_last_name
+FROM users 
+JOIN friendships ON users.id = 1
+LEFT JOIN users as user2 ON friendships.friend_id  = users.id ;
+
+
+SELECT COUNT(*) AS COUNT
+FROM friendships;
+
