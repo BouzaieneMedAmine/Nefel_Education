@@ -37,9 +37,9 @@ def create():
     return redirect('/users')
 
 
-@app.route('/user/update', methods=['POST'])
-def update():
-    User.update(request.form)
+@app.route('/user/update/<int:id>', methods=['POST'])
+def update(id):
+    User.update({**request.form, 'id':id})
     return redirect('/users')
 
 
