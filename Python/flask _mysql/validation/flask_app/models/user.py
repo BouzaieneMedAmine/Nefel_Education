@@ -62,22 +62,22 @@ class User:
 
         
 
-@staticmethod
-def validate(data):
-    is_valid =True
-    if len(data['description'])<10:
-        flash("Description must contain at least 10 charecters", "description")
-        is_valid = False
-    if data['amount']== "" or float(data['amount']) < 0.5:
-        is_valid = False
-        flash ("Amount must be at least 0.5$", "amount")
-    try:
-        expense_date = datetime.strptime(data['expense_date'], "%y-%m-%d").date()
-        if expense_date> date.today():
-            flash("Date must be in the past", "expense_date")
-            is_valid=False
-    except ValueError:
-        flash('Invalid date format', "expense_date")
-        is_valid = False
+    @staticmethod
+    def validate(data):
+        is_valid =True
+        if len(data['description'])<10:
+            flash("Description must contain at least 10 charecters", "description")
+            is_valid = False
+        if data['amount']== "" or float(data['amount']) < 0.5:
+            is_valid = False
+            flash ("Amount must be at least 0.5$", "amount")
+        try:
+            expense_date = datetime.strptime(data['expense_date'], "%y-%m-%d").date()
+            if expense_date> date.today():
+                flash("Date must be in the past", "expense_date")
+                is_valid=False
+        except ValueError:
+            flash('Invalid date format', "expense_date")
+            is_valid = False
 
-    return is_valid
+        return is_valid
