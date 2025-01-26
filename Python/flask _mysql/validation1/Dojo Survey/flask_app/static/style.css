@@ -1,0 +1,20 @@
+* {
+    padding: 0 auto;
+    margin: 55 auto;
+    font-family: sans-serif;
+    width: 444px;
+    margin: 0 auto;
+    justify-content: center;
+  }
+  .main{
+align-items: center;
+justify-content: center;
+    /* align-items: center; */
+    background-color: rgb(201, 204, 41);
+    width: 555px;
+    height: 666px;
+    display: flex;
+    flex-direction: column;
+    
+
+  }

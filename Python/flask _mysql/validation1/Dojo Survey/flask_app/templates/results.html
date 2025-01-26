@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <title>Documeddddnt</title>
+  </head>
+
+  <body>
+    <table class="table table-bordered">
+      <thead>
+                
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ 
+          {% for expense in all_expenses %}
+              
+                 <h1  style="color: blue;"  >   {{expense.name}}</h1>
+ <br>
+                  <h3>   location   :{{expense.location}}</h3>
+                    <h3> language   : {{expense.language}}</h3>
+                      <h3> comment   : {{expense.comment}}</h3>
+  
+          {% endfor %}
+    
+ 
+      
+    </div>
+  </body>
+</html>

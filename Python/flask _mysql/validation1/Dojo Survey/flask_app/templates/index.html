@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="main">
+      <h1>Dojo Survey</h1>
+      <br />
+      <br />
+      <form action="/create" method="POST">
+       
+        <label for="">Name:</label>
+        <br />
+        <input type="text" name="name"   id="name" />
+        <br />
+        <br />
+        <label for=""> Favorite language :</label>
+        <br />
+        <select  name="language"   id="language">
+          <option value="">selcect from here</option>
+          <option value="c++">c++</option>
+          <option value="java">java</option>
+          <option value="c#">c#</option>
+          <option value="py">py</option>
+        </select>
+        <br />
+        <br />
+        <label for=""> dojo lucation :</label>
+        <br />
+        <select   name="location"  id="location">
+          <option value=""> selcect from here</option>
+           <option value="libya">libya</option>
+          <option value="italy">italy</option>
+          <option value="tunis">tunis</option>
+          <option value="canada">canada</option>
+          <br />
+        </select>
+        <br />
+        <br />
+
+        <label id="" for="">Comments: </label>
+
+        <br/>
+        <textarea name="comment" id="comment"> </textarea>
+        <br />
+        <button type="submit">Submit</button>
+        {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+        {% if messages %}                            <!-- check if there are any messages -->
+        {% for message in messages %}            <!-- loop through the messages -->
+         <p style="color: rgb(255, 0, 51);"  >{{message}}</p>                   <!-- display each message in a paragraph tag -->
+         {% endfor %}
+         {% endif %}
+         {% endwith %}
+      </form>
+    </div>
+  </body>
+</html>
