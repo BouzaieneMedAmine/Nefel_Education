@@ -1,0 +1,43 @@
+try:
+expense_date = datetime.strptime(data['erd_date'], "%Y-%m-%d").date()
+if erd_date > date.today():
+flash("Date must be in the past", "erd_date")
+is_valid=False
+except ValueError:
+flash('invalid date format', "erd_date")
+is_valid = False
+
+
+
+
+@staticmethod
+    def validate (data):
+        is_valid=True
+        if len(data['title'])<3:
+            flash("  title must contain at   3 characteres ", "title")
+            is_valid = False
+        if len(data['network'])<3:
+            flash(" network must contain at   3 characteres", "network")
+            is_valid = False
+        if len(data['description'])<3:
+            flash("  description must contain at   3 characteres ", "description")
+            is_valid = False
+        return is_valid
+
+
+
+@app.route("/html/create", methods=["POST"])
+def handle_create_form():
+    if not erd.validate(request.form):
+        return redirect("/html/new")
+    Expense.create({**request.form, "user_id": session['user_id']})
+    return redirect("/html")
+
+
+ <select name="category" class="form-select" >
+                <option  value="Food" {% if expense.category== 'Food'%} selected {% endif %}>Food</option>
+                <option value="Rent" {% if expense.category== 'Rent'%} selected {% endif %}></option> >Rent</option>
+                <option value="Entertainment" {% if expense.category== 'Entertainment'%} selected {% endif %}></option>>Entertainment</option>
+                <option value="Transportation"{% if expense.category== 'Transportation'%} selected {% endif %}></option> >Transportation</option>
+                <option value="Others" {% if expense.category== 'Others'%} selected {% endif %}></option>>Others</option>
+            </select>
