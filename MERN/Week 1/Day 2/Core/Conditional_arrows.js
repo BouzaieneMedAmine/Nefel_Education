@@ -1,6 +1,6 @@
 //  Problem 1
 
-let checkOld = (userAge  ) =>{
+let checkOld = userAge=>{
   return userAge > 18 ?
   "You are good to go!"
   :"Sorry! You must be 18 or older!"
@@ -12,7 +12,7 @@ console.log (checkOld (21 ))
 
 
 //Problem 2
-let chekRain = (raning) => {
+let chekRain = raning => {
   return raning ==1 ?
   "Get your rain jacket!"
   :"No rain on today's forecast!"
@@ -21,7 +21,7 @@ let chekRain = (raning) => {
 console.log (chekRain(0))
 
 // Problem 3
-let chekEven = (number) => {
+let chekEven = number => {
   return number%2 ==0 ?
   "That's an even number!"
   :"That's an odd number!"
