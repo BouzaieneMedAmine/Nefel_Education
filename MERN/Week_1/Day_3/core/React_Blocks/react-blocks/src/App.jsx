@@ -12,14 +12,22 @@ import Navigation from './components/Navigation';
 
  
    
-      function App() {
-        return (
-        <div className= "app">
-          <Header/>
-          <Navigation/>
-          <MainContent/>
-        </div>)
-      }
+ 
+
+          const App = () => {
+            return (
+              <div className="app">
+                <Header />
+                <div className="content">
+                  <Navigation />
+                  <MainContent />
+                </div>
+              </div>
+            );
+          };
+          
+      
+    
 
 
 export default App
