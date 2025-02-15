@@ -1,0 +1,43 @@
+.app {
+  display: grid;
+  grid-template-rows: 60px auto;
+  grid-template-columns: 200px auto;
+  height: 100vh;
+  gap: 10px;
+}
+
+.header {
+  grid-column: span 2;
+  background-color: #4caf50;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.navigation {
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.subcontent-container {
+  display: flex;
+  gap: 10px;
+}
+
+.subcontent {
+  background-color: lightblue;
+  flex: 1;
+  padding: 20px;
+}
+
+.advertisement {
+  background-color: orange;
+  height: 100px;
+  margin-top: 20px;
+}
