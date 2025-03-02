@@ -23,7 +23,7 @@ function ShowOneBook() {
   const handleDelete = () => {
     axios.delete(`http://localhost:5000/api/book/${id}`)
       .then(() => {
-        nav("/book");
+        nav("/");
       })
       .catch(err => console.error(err));
   };

@@ -20,9 +20,13 @@ const booksSchema = new Schema(
     },
     isValidObjectId: {
       type: Boolean,
-      default: true // Set to true if books are available by default
+      default: true
+    },
+    likes: {
+      type: Number,
+      default: 0,
+      min: [0, "Likes cannot be negative."] // Ensures likes stay positive
     }
-    
   },
   { timestamps: true }
 );

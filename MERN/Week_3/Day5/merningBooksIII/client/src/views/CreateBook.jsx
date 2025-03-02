@@ -11,10 +11,11 @@ function CreateBook() {
     author: "",
     pages: "",
     isValidObjectId: true,
+    likes: 0, // Added likes field
   });
 
   const [errors, setErrors] = useState({});
-  const [frontendErrors, setFrontendErrors] = useState({}); // New state for frontend validation
+  const [frontendErrors, setFrontendErrors] = useState({});
 
   const validateForm = () => {
     let tempErrors = {};
@@ -28,7 +29,7 @@ function CreateBook() {
       tempErrors.pages = "Pages must be a positive number.";
     }
     setFrontendErrors(tempErrors);
-    return Object.keys(tempErrors).length === 0; // Return true if no errors
+    return Object.keys(tempErrors).length === 0;
   };
 
   const handleChange = (e) => {
@@ -41,7 +42,7 @@ function CreateBook() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!validateForm()) return; // Stop submission if frontend validation fails
+    if (!validateForm()) return;
 
     axios
       .post("http://localhost:5000/api/book/", book)
@@ -64,53 +65,25 @@ function CreateBook() {
                 <label htmlFor="title" className="form-label fw-bold">Title</label>
                 {frontendErrors.title && <div className="alert alert-danger p-2">{frontendErrors.title}</div>}
                 {errors.title && <div className="alert alert-warning p-2">{errors.title.message}</div>}
-                <input
-                  type="text"
-                  name="title"
-                  value={book.title}
-                  onChange={handleChange}
-                  className="form-control"
-                  placeholder="Enter book title"
-                />
+                <input type="text" name="title" value={book.title} onChange={handleChange} className="form-control" placeholder="Enter book title" />
               </div>
 
               <div className="mb-3">
                 <label htmlFor="author" className="form-label fw-bold">Author</label>
                 {frontendErrors.author && <div className="alert alert-danger p-2">{frontendErrors.author}</div>}
                 {errors.author && <div className="alert alert-warning p-2">{errors.author.message}</div>}
-                <input
-                  type="text"
-                  name="author"
-                  value={book.author}
-                  onChange={handleChange}
-                  className="form-control"
-                  placeholder="Enter author's name"
-                />
+                <input type="text" name="author" value={book.author} onChange={handleChange} className="form-control" placeholder="Enter author's name" />
               </div>
 
               <div className="mb-3">
                 <label htmlFor="pages" className="form-label fw-bold">Pages</label>
                 {frontendErrors.pages && <div className="alert alert-danger p-2">{frontendErrors.pages}</div>}
                 {errors.pages && <div className="alert alert-warning p-2">{errors.pages.message}</div>}
-                <input
-                  type="number"
-                  name="pages"
-                  value={book.pages}
-                  onChange={handleChange}
-                  className="form-control"
-                  placeholder="Enter number of pages"
-                />
+                <input type="number" name="pages" value={book.pages} onChange={handleChange} className="form-control" placeholder="Enter number of pages" />
               </div>
 
               <div className="mb-3 form-check">
-                <input
-                  type="checkbox"
-                  name="isValidObjectId"
-                  checked={book.isValidObjectId}
-                  onChange={handleChange}
-                  className="form-check-input"
-                  id="availableCheckbox"
-                />
+                <input type="checkbox" name="isValidObjectId" checked={book.isValidObjectId} onChange={handleChange} className="form-check-input" id="availableCheckbox" />
                 <label htmlFor="availableCheckbox" className="form-check-label fw-bold">Available?</label>
               </div>
 

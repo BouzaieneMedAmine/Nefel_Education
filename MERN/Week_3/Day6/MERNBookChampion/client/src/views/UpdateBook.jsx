@@ -13,10 +13,25 @@ const UpdateBook = () => {
     author: "",
     pages: "",
     isValidObjectId: true,
+    likes: 0,
   });
 
   const [errors, setErrors] = useState({});
   const [frontendErrors, setFrontendErrors] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/api/book/${id}`)
+      .then((res) => {
+        setBook(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching book data:", err);
+        setLoading(false);
+      });
+  }, [id]);
 
   const validateForm = () => {
     let tempErrors = {};
@@ -29,16 +44,23 @@ const UpdateBook = () => {
     if (!book.pages || book.pages <= 0) {
       tempErrors.pages = "Pages must be a positive number.";
     }
+    if (book.likes < 0) {
+      tempErrors.likes = "Likes cannot be negative.";
+    }
     setFrontendErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setBook((prevData) => ({
-      ...prevData,
-      [name]: type === "checkbox" ? checked : value,
-    }));
+    setBook((prevData) => {
+      const updatedData = {
+        ...prevData,
+        [name]: type === "checkbox" ? checked : value,
+      };
+      validateForm(); // Validate dynamically
+      return updatedData;
+    });
   };
 
   const handleSubmit = (e) => {
@@ -53,12 +75,9 @@ const UpdateBook = () => {
       });
   };
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:5000/api/book/${id}`)
-      .then((res) => setBook(res.data))
-      .catch((err) => console.error(err));
-  }, [id]);
+  if (loading) {
+    return <div className="container mt-4">Loading book details...</div>;
+  }
 
   return (
     <div className="container mt-4">
@@ -71,30 +90,33 @@ const UpdateBook = () => {
               <div className="mb-3">
                 <label htmlFor="title" className="form-label fw-bold">Title</label>
                 {frontendErrors.title && <div className="alert alert-danger p-2">{frontendErrors.title}</div>}
-                {errors.title && <div className="alert alert-warning p-2">{errors.title.message}</div>}
-                <input type="text" name="title" value={book.title} onChange={handleChange} className="form-control" placeholder="Enter book title" />
+                <input type="text" name="title" value={book.title} onChange={handleChange} className="form-control" />
               </div>
 
               <div className="mb-3">
                 <label htmlFor="author" className="form-label fw-bold">Author</label>
                 {frontendErrors.author && <div className="alert alert-danger p-2">{frontendErrors.author}</div>}
-                {errors.author && <div className="alert alert-warning p-2">{errors.author.message}</div>}
-                <input type="text" name="author" value={book.author} onChange={handleChange} className="form-control" placeholder="Enter author's name" />
+                <input type="text" name="author" value={book.author} onChange={handleChange} className="form-control" />
               </div>
 
               <div className="mb-3">
                 <label htmlFor="pages" className="form-label fw-bold">Pages</label>
                 {frontendErrors.pages && <div className="alert alert-danger p-2">{frontendErrors.pages}</div>}
-                {errors.pages && <div className="alert alert-warning p-2">{errors.pages.message}</div>}
-                <input type="number" name="pages" value={book.pages} onChange={handleChange} className="form-control" placeholder="Enter number of pages" />
+                <input type="number" name="pages" value={book.pages} onChange={handleChange} className="form-control" />
+              </div>
+
+              <div className="mb-3">
+                <label htmlFor="likes" className="form-label fw-bold">Likes</label>
+                {frontendErrors.likes && <div className="alert alert-danger p-2">{frontendErrors.likes}</div>}
+                <input type="number" name="likes" value={book.likes} onChange={handleChange} className="form-control" />
               </div>
 
               <div className="mb-3 form-check">
-                <input type="checkbox" name="isValidObjectId" checked={book.isValidObjectId} onChange={handleChange} className="form-check-input" id="availableCheckbox" />
-                <label htmlFor="availableCheckbox" className="form-check-label fw-bold">Available?</label>
+                <input type="checkbox" name="isValidObjectId" checked={book.isValidObjectId} onChange={handleChange} className="form-check-input" />
+                <label htmlFor="isValidObjectId" className="form-check-label fw-bold">Available?</label>
               </div>
 
-              <button type="submit" className="btn btn-warning w-100">Update Book</button>
+              <button type="submit" className="btn btn-warning w-100" disabled={Object.keys(frontendErrors).length > 0}>Update Book</button>
             </form>
           </div>
         </div>

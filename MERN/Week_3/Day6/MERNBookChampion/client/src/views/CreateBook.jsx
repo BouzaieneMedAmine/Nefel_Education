@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Nav.jsx";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 
-const UpdateBook = () => {
+function CreateBook() {
   const nav = useNavigate();
-  const { id } = useParams();
-
   const [book, setBook] = useState({
     title: "",
     author: "",
     pages: "",
     isValidObjectId: true,
+    likes: 0,
   });
 
   const [errors, setErrors] = useState({});
@@ -44,8 +43,9 @@ const UpdateBook = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!validateForm()) return;
+
     axios
-      .put(`http://localhost:5000/api/book/${id}`, book)
+      .post("http://localhost:5000/api/book/", book)
       .then(() => nav("/"))
       .catch((err) => {
         setErrors(err.response?.data?.errors || {});
@@ -53,20 +53,13 @@ const UpdateBook = () => {
       });
   };
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:5000/api/book/${id}`)
-      .then((res) => setBook(res.data))
-      .catch((err) => console.error(err));
-  }, [id]);
-
   return (
     <div className="container mt-4">
-      <Navbar title={`Update ${book.title}`} />
+      <Navbar title="Add Book" />
       <div className="row justify-content-center">
         <div className="col-md-6">
           <div className="card shadow-lg p-4">
-            <h2 className="text-center mb-4">Update Book</h2>
+            <h2 className="text-center mb-4">Add a New Book</h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="title" className="form-label fw-bold">Title</label>
@@ -94,13 +87,13 @@ const UpdateBook = () => {
                 <label htmlFor="availableCheckbox" className="form-check-label fw-bold">Available?</label>
               </div>
 
-              <button type="submit" className="btn btn-warning w-100">Update Book</button>
+              <button type="submit" className="btn btn-primary w-100" disabled={Object.keys(frontendErrors).length > 0}>Add Book</button>
             </form>
           </div>
         </div>
       </div>
     </div>
   );
-};
+}
 
-export default UpdateBook;
+export default CreateBook;
