@@ -46,7 +46,7 @@ function CreateBook() {
 
     axios
       .post("http://localhost:5000/api/book/", book)
-      .then(() => nav("/book"))
+      .then(() => nav("/"))
       .catch((err) => {
         setErrors(err.response?.data?.errors || {});
         console.error(err);
