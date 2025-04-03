@@ -34,8 +34,8 @@ public class Phone extends Device {
         // Optionally initialize phone battery if needed
         System.out.println("Phone initialized.");
         // Test method calls if desired, e.g.:
-        // phone.charge();
-        // phone.makeCall();
-        // phone.playGame();
+         phone.charge();
+         phone.makeCall();
+         phone.playGame();
     }
 }
