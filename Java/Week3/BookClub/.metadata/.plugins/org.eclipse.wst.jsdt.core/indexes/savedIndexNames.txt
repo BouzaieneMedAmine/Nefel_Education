@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+C:\Users\DELL\Desktop\AmineExamJava\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+499753906.index
+3656079289.index
+2181825331.index
+2706874314.index
+1392781844.index
+1603965228.index
+1748069246.index

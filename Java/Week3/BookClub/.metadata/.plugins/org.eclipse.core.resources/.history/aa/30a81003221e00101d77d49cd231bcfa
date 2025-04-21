@@ -1,0 +1,9 @@
+spring.application.name=Exam
+pring.datasource.url=jdbc:mysql://localhost:3306/animedb?createDatabaseIfNotExist=true
+spring.datasource.username=root
+spring.datasource.password=root
+spring.mvc.view.prefix=/WEB-INF/
+
+spring.jpa.hibernate.ddl-auto=update
+
+spring.mvc.hiddenmethod.filter.enabled=true

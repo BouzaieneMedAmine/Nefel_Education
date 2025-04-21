@@ -1,0 +1,94 @@
+package com.example.examjava.controllers;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+
+import com.example.examjava.model.User;
+import com.example.examjava.model.UserLogin;
+import com.example.examjava.serves.UserServ;
+
+import ch.qos.logback.core.model.Model;
+import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
+
+
+@Controller
+public class MainController {
+	
+	private final UserServ userService;
+
+
+	public MainController(UserServ userService) {
+		this.userService = userService;
+
+	}
+	
+	@GetMapping("/")
+	public String index(Model model) {
+		model.addAttribute("newUser", new User());
+		model.addAttribute("newLogin", new UserLogin());
+		return "index.jsp";
+	}
+
+	
+	@PostMapping("/register")
+	public String register(@Valid @ModelAttribute("newUser") User newUser, BindingResult result, Model model,
+			HttpSession session) {
+
+		User user = userService.register(newUser, result);
+
+		if (result.hasErrors()) {
+			model.addAttribute("newLogin", new UserLogin());
+			return "index.jsp";
+		}
+		session.setAttribute("userId", user.getId());
+
+		return "redirect:/home";
+	}
+
+	@PostMapping("/login")
+	public String login(@Valid @ModelAttribute("newLogin") UserLogin newLogin, BindingResult result, Model model,
+			HttpSession session) {
+
+		User user = userService.login(newLogin, result);
+
+		if (result.hasErrors() || user == null) {
+			model.addAttribute("newUser", new User());
+			return "index.jsp";
+		}
+
+		session.setAttribute("userId", user.getId());
+
+		return "redirect:/home";
+	}
+
+	@GetMapping("/home")
+	public String dashboard(HttpSession session, Model model) {
+		if (session.getAttribute("userId") == null) {
+			return "redirect:/logout";
+		}
+		Long userId = (Long) session.getAttribute("userId");
+		User user = userService.findById(userId);
+
+		model.addAttribute("user", user);
+		List<Tab> allTabs = tabService.allTabs();
+		model.addAttribute("allTabs", allTabs);
+
+		return "dashboard.jsp";
+	}
+
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.setAttribute("userId", null);
+		return "redirect:/";
+	}
+	
+	
+
+}

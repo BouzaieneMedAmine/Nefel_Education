@@ -1,0 +1,57 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page isErrorPage="true"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+<title>Dashboard</title>
+</head>
+<body class="m-5">
+	<div class="d-flex align-items-center justify-content-between gap-3">
+		<h1 class="text-warning">Welcome back, ${user.name} !!</h1>
+		<a class="ml-5" href="/logout">LogOut</a>
+	</div>
+	<div class="mt-2">
+		<div class="d-flex justify-content-between">
+			<h3>Your Tables</h3>
+			<a href="/tables/new"><button class="btn btn-outline-dark">+
+					New Table</button></a>
+		</div>
+
+		<table class="table mt-3">
+			<thead>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Title</th>
+					<th scope="col">Author Name</th>
+					<th scope="col">Posted By</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="tab" items="${allTabs}">
+
+					<c:if test="${tab.waiter.id==user.id}">
+						<tr>
+							<td>${tab.guestName}</td>
+							<td>${tab.guests}</td>
+							<td><fmt:formatDate value="${tab.createdAt}"
+									pattern="MMMM dd hh:mm a" /></td>
+							<td class="d-flex align-items-center gap-2"><a
+								href="/tables/${tab.id}/delete">finished</a>|<a
+								href="/tables/${tab.id}/edit">edit</a>|<a
+								href="/table/${tab.id}/giveUp">Give Up Table</a></td>
+						</tr>
+					</c:if>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
+
+	<a href="/tables">See</a>
+	<a href="/opentables">Other Tables</a>
+</body>
+</html>

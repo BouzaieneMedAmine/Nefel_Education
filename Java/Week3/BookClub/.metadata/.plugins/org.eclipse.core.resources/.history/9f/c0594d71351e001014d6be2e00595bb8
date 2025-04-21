@@ -1,0 +1,5 @@
+package com.example.examjava.repositories;
+
+public interface BookRepo {
+
+}
